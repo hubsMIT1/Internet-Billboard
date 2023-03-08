@@ -1,0 +1,396 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(to right, #c1ff97 0%, #87ff8d 100%);
+  font-size: 12px;
+}
+
+body,
+button,
+input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.background {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  /* flex: 0 1 700px; */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
+.screen {
+  position: relative;
+  background: #3e3e3e;
+  border-radius: 15px;
+  
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  z-index: -1;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #4d4d4f;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+  margin-right: auto;
+}
+
+.screen-header-title {
+  /* background: #74c54f; */
+  color: #63f77b;
+  font-size: large;
+  font-weight: bold;
+}
+
+.screen-header-right {
+  display: flex;
+}
+
+.screen-header-ellipsis {
+  width: 3px;
+  height: 3px;
+  margin-left: 2px;
+  border-radius: 8px;
+  background: #999;
+}
+
+.screen-body {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  /* padding: 50px; */
+}
+.screen-body-item.right{
+  max-width: 55%;
+  width:55%;
+}
+.screen-body-item.left {
+  /* width:40vw; */
+  max-width: 50%;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+  padding-right: 10px;
+}
+
+h1 {
+  margin-top: 0;
+  font-weight: 100;
+  color: #63f77b;
+  font-family: serif;
+  line-height: 1.2em;
+
+}
+
+
+.message-title {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.show-amnt {
+
+  visibility: hidden;
+  display: inline;
+  color: rgb(79, 243, 79);
+  font-size: 1.5rem;
+}
+
+.eye-icon:hover .show-amnt {
+  /* display: block; */
+  visibility: visible;
+}
+
+.eye-icon {
+  /* display: inline; */
+  
+  cursor: pointer;
+  color: #a18888;
+  display: inline;
+}
+
+
+.name-title {
+  color: #a18888;
+}
+
+.name-title h1 {
+  color: #a18888;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .screen-body {
+    flex-direction: column;
+  }
+
+  .screen-body-item.left {
+    max-width: 100%;
+    width:100%;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+  .screen-body-item.right{
+    max-width: 100%;
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .screen-body {
+    padding: 40px 5px 0px 10px;
+  }
+
+  .screen-body-item.left {
+    border: 0;
+    border-bottom: 1px solid gray;
+  }
+
+}
+
+.flex_column_center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#snackbar,
+#snackbar1 {
+
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+
+  top: 30px;
+  text-align: center;
+}
+
+#snackbar.show,
+#snackbar1.show {
+  visibility: visible;
+
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 10s;
+  animation: fadein 0.5s, fadeout 0.5s 10s;
+}
+
+/* Animations to fade the toastbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+.time_remaining {
+  color: red;
+  font-size: 1.2rem;
+}
+
+#bitcoinpay {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+.blockonomics_message div div a {
+  border: 1px solid gray;
+  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.blockonomics_message div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.blockonomics_message div input {
+  color: black;
+  border: 1px solid rgb(70, 68, 68);
+  border-radius: 15px;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+/* .blockonomics_message div:nth-child(2):nth-child(4) {
+  color: #059e66 !important;
+  text-align: center;
+} */
+
+.blockonomics_message div:nth-child(2),
+.blockonomics_error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  padding: 10px;
+}
+
+.blockonomics_close {
+  display: none;
+}
+
+.blockonomics_message .blockonomics_close a {
+  display: none;
+}
+
+.closebtn {
+  display: block;
+  padding: 7px 35px;
+  border-radius: 60px;
+  display: inline-block;
+  background-color: #63f77b;
+  color: rgb(99, 230, 60);
+
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06),
+    0 2px 10px 0 rgba(0, 0, 0, 0.07);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  width: 100px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closebtn a {
+  color: rgb(8, 8, 8);
+  font-size: 1.2rem;
+  font-weight: bold;
+
+
+}
+
+.blockonomics_message .usd_to_bitcoin {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.blockonomics_close :hover {
+  transform: translateY(1px);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.10),
+    0 1px 1px 0 rgba(0, 0, 0, 0.09);
+}
+
+#blockonomics_widget {
+  border: none !important;
+}
+
+#blockonomics_widget {
+  border: 1px solid #f1f1f1 !important;
+  display: none;
+  /* Hide the border until the widget is shown */
+}

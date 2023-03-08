@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="form.css">
+  <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <title>Internet Bitcoin BillBoard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https:///blockonomics.co/js/pay_widget.js"></script>
+</head>
+
+<body id="getdata" data-my-data="<%=data %>" >
+  <!-- It is to show payment area after submit the detail|amount|form -->
+<!-- just to get the data  -->
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>Payment</h2>
+      <h4> Pay Higher Amount to add your message top list !!</h4>
+      <a class="close" onclick="cancelPayment()">&times;</a>
+      <div class="content">
+        <!-- here inside this div we show blockonomics wadget div -->
+        
+        <b><span id="bitcoinpay">
+          </span></b>
+        <!-- Custmized close btn -->
+        <div class="blockonomics_close closebtn" onclick="cancelPayment()" style="text-align:center;"><a
+            style="cursor:pointer">Close</a>
+        </div>
+        <!-- Just to total usd in BTC  -->
+        <h4 id="usd_to_bitcoin"> </h4>
+      </div>
+    </div>
+  </div>
+  <!-- here main body part  -->
+  <div class="background">
+    <div class="container">
+      <div class="screen">
+        <!-- upper headre design -->
+        <div class="screen-header">
+          <div class="screen-header-left">
+
+            <div class="screen-header-title">Blockonomics</div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+          </div>
+        </div>
+
+        <!-- main section after header -->
+        <div class="screen-body">
+          <!-- left section  to show message  -->
+          <div class="screen-body-item left">
+
+            <div class="message-title">
+              <h3>MESSAGE </h3>
+              <h6 class="eye-icon"> Amount
+                <!-- here i just try to show previous highest paid amount  -->
+                <i class="eye-icon far fa-eye" id="togglePassword">
+                  : <h6 id="show_amnt" class="show-amnt"> 00 </h6>
+                </i>
+              </h6>
+            </div>
+
+            <div id="show_name" class="name-title">NAME: </div>
+            <!-- message box  -->
+            <h1 id="show_msg">  ADD YOUR MESSAGE HERE!!</h1>
+
+          </div>
+          <!-- There is right part where ll see the form to take details  -->
+          <div class="screen-body-item right">
+            <div class="input_header">
+            <h2 class="input_payment_title"> Pay Higher Amount to add your message at top list: </h2>
+          </div>
+            <form onsubmit="return pay(event)" class="row input-container">
+              <div class="col-xs-12">
+                <div class="styled-input wide">
+                  <input id="name" type="text" name="name" required />
+                  <label>Name</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="styled-input">
+                  <input type="email" id="email" name="email" required />
+                  <label>Email</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="styled-input">
+                  <input type="number" id="amount" name="amount" required />
+                  <label>Amount</label>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="styled-input wide">
+                  <textarea name="message" id="text" required></textarea>
+                  <label>Message</label>
+                </div>
+              </div>
+              <div class="col-xs-12">
+
+                <!-- <div class="btn-lrg submit-btn">Pay Bitcoin</div> -->
+                <input type="submit" class="btn-lrg submit-btn " />
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- To Show a toast after Payment -->
+      <section id="main_section_container_1" class="flex_column_center">
+        <!-- <div id="snackbar1">Payment Done but.. OOPS You have to pay higher amount to be higer bidder...</div> -->
+        <div id="snackbar">Wow successfully You have become higher bidder </div>
+      </section>
+
+    </div>
+  </div>
+  <script type="text/javascript" src="main.js"> 
+    
+  </script>
+  
+</body>
+
+</html>
